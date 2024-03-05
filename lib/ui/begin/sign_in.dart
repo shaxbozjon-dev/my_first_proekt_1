@@ -108,17 +108,23 @@ class _SignInState extends State<SignIn> {
             ),
             TextButton (
               onPressed: () {
-             if( Database.login(phoneNumber.text, password.text)=="Hammasi zo'r Homega kirdingiz"){
-               Navigator.push(context, MaterialPageRoute(builder: (_)=>Menu()));
-             }
-             else{
-               sleep(Duration(milliseconds: 3));
-              Container (
-                height: 100,
-                width: 100,
-                color: Colors.green,
-              );
-                }
+                setState(() {
+                  if( Database.login(phoneNumber.text, password.text)==PersonStatus.hammasiZor){
+
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=>Menu()));
+                  }
+                  else{
+                    sleep(Duration(milliseconds: 3));
+                    Container (
+                      height: 100,
+                      width: 100,
+                      color: Colors.green,
+                    );
+                  }
+
+                });
+
+
               },
               child: Padding(
                 padding: const EdgeInsets.all(18.0),

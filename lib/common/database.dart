@@ -1,5 +1,7 @@
 import 'package:pdaftar/common/model/model.dart';
 
+import '../ui/begin/sign_in.dart';
+
 class Database{
  static Map<String,PersonModel> Malumotlar={};
  static bool isContains(PersonModel person) {
@@ -22,7 +24,7 @@ static PersonStatus login(String phone, String password) {
    /// bor bo'lsa endi kodini tekshiramiz
    /// kodi tori bosa hammasiZor bomasa kodXato
    if (Malumotlar[phone]!.password == password) {
-
+names=Malumotlar[phone]!.name;
     return PersonStatus.hammasiZor;
    } else {
     return PersonStatus.kodXato;

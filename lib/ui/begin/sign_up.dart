@@ -131,11 +131,16 @@ class _SignUpState extends State<SignUp> {
 
             TextButton(
               onPressed: (){
-                PersonModel newObyekt=PersonModel(name: name.text, password: password.text, phoneNumber: phoneNumber.text);
-                Database.isContains(newObyekt);
-                name.clear();
-                password.clear();
-                phoneNumber.clear();
+
+                setState(() {
+                  PersonModel newObyekt=PersonModel(name: name.text, password: password.text, phoneNumber: phoneNumber.text);
+                  Database.isContains(newObyekt);
+                  name.clear();
+                  password.clear();
+                  phoneNumber.clear();
+
+                });
+
               },
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
