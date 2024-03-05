@@ -6,6 +6,7 @@ import 'package:pdaftar/common/model/model.dart';
 import 'package:pdaftar/screen/begin/sign_in.dart';
 
 import '../../common/database.dart';
+import '../../routes/app_router.gr.dart';
 
 @RoutePage()
 class SignUp extends StatefulWidget {
@@ -33,7 +34,9 @@ class _SignUpState extends State<SignUp> {
 
                 TextButton(
                   onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (_)=>SignIn()));
+                    setState(() {
+                      AutoRouter.of(context).push(RouteA());
+                    });
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(left: 18,top: 18,bottom: 18),

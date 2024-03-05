@@ -1,11 +1,9 @@
 import 'dart:io';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:pdaftar/screen/begin/sign_up.dart';
-
 import '../../common/database.dart';
-import '../../ui/menu/menu.dart';
+import '../../routes/app_router.gr.dart';
+import '../menu/menu.dart';
 String names="";
 
 @RoutePage()
@@ -159,7 +157,7 @@ class _SignInState extends State<SignIn> {
                   TextButton(
                       onPressed: (){
                         setState(() {
-                       AutoRouter.of(context).push(SignUp() as PageRouteInfo);
+                       AutoRouter.of(context).push(RouteB());
                         });
                       },
                       child: Text("Ro'yhatdan o'tish",style: TextStyle(color: Colors.green.shade900,fontSize: 18),)),
