@@ -1,5 +1,11 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:pdaftar/ui/begin/sign_up.dart';
+
+import '../../common/database.dart';
+import '../menu/menu.dart';
+String names="";
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
@@ -94,53 +100,68 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
             ),
-            Padding(
+            Padding (
               padding: const EdgeInsets.only(right: 18),
               child: Align(
                   alignment: Alignment.bottomRight,
                   child: Text("Parolni unutdigizmi",style: TextStyle(fontWeight: FontWeight.bold),)),
             ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: SizedBox(
-                height: 60,
-                width: double.infinity,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: Colors.black54,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Kirish",
-                      style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
+            TextButton (
+              onPressed: () {
+             if( Database.login(phoneNumber.text, password.text)=="Hammasi zo'r Homega kirdingiz"){
+               Navigator.push(context, MaterialPageRoute(builder: (_)=>Menu()));
+             }
+             else{
+               sleep(Duration(milliseconds: 3));
+              Container (
+                height: 100,
+                width: 100,
+                color: Colors.green,
+              );
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: SizedBox(
+                  height: 60,
+                  width: double.infinity,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
+                      color: Colors.black54,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Kirish ${Database.Malumotlar}",
+                        style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-            Text("Hisobigiz yo'qmi?Ro'yhatdan o'tish"),
-            Text.rich(
-              TextSpan(
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.blueGrey,
-                ),
-                text: "Hisobingiz yo'qmi?",
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Row(
                 children: [
-                  TextSpan(
-                    text: "Ro'yhatdan o'tish",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xff2a8863),
-                    ),
-                  ),
+                  Text("   Hisobigiz yo'qmi?",style: TextStyle(color: Colors.blueGrey,fontSize: 18),),
+                  TextButton(
+                      onPressed: (){
+                        setState(() {
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>SignUp()));
+                        });
+                      },
+                      child: Text("Ro'yhatdan o'tish",style: TextStyle(color: Colors.green.shade900,fontSize: 18),)),
                 ],
               ),
             ),
+
+
           ],
         ),
       ),
     );
   }
+
+
 }

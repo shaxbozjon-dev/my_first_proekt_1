@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class PersonModel {
   String name;
-  int phoneNumber;
+  String phoneNumber;
   String password;
 
   PersonModel(
@@ -22,6 +22,11 @@ class PersonModel {
     return PersonModel(
         name: json['name'] as String,
         password: json['phoneNumber'] as String,
-        phoneNumber: json['phonenumber'] as int);
+        phoneNumber: json['phonenumber'] as String);
+  }
+  @override
+  String toString() {
+    // TODO: implement toString
+    return "Name:$name phonnumber $phoneNumber";
   }
 }
