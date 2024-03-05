@@ -1,12 +1,13 @@
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pdaftar/common/model/model.dart';
-import 'package:pdaftar/ui/begin/sign_in.dart';
+import 'package:pdaftar/screen/begin/sign_in.dart';
 
 import '../../common/database.dart';
 
-
+@RoutePage()
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
 

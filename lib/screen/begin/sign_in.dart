@@ -1,11 +1,15 @@
 import 'dart:io';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:pdaftar/ui/begin/sign_up.dart';
+import 'package:pdaftar/screen/begin/sign_up.dart';
 
 import '../../common/database.dart';
-import '../menu/menu.dart';
+import '../../ui/menu/menu.dart';
 String names="";
+
+@RoutePage()
+
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
@@ -14,6 +18,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+
   final password = TextEditingController();
   final phoneNumber = TextEditingController();
   bool obcourse = true;
@@ -154,7 +159,7 @@ class _SignInState extends State<SignIn> {
                   TextButton(
                       onPressed: (){
                         setState(() {
-                          Navigator.push(context, MaterialPageRoute(builder: (_)=>SignUp()));
+                       AutoRouter.of(context).push(SignUp() as PageRouteInfo);
                         });
                       },
                       child: Text("Ro'yhatdan o'tish",style: TextStyle(color: Colors.green.shade900,fontSize: 18),)),

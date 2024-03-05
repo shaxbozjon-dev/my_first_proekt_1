@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../begin/sign_in.dart';
+import '../../screen/begin/sign_in.dart';
 class Main extends StatefulWidget {
   const Main({super.key});
 

@@ -4,7 +4,7 @@ import 'package:pdaftar/ui/menu/Star.dart';
 import 'package:pdaftar/ui/menu/mainning.dart';
 import 'package:pdaftar/ui/menu/transfer.dart';
 
-import '../begin/sign_in.dart';
+import '../../screen/begin/sign_in.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});

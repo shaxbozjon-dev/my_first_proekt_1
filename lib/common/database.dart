@@ -1,6 +1,6 @@
 import 'package:pdaftar/common/model/model.dart';
 
-import '../ui/begin/sign_in.dart';
+import '../screen/begin/sign_in.dart';
 
 class Database{
  static Map<String,PersonModel> Malumotlar={};
