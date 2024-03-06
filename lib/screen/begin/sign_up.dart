@@ -26,6 +26,8 @@ class _SignUpState extends State<SignUp> {
     bool _obcourse2=true;
     return SafeArea(
       child: Scaffold(
+        //klaviatura da hatolik bulsa ,((telefon) klaviatura sig'masa)
+        resizeToAvoidBottomInset: false,
 
         body:Column(
           children: [

@@ -31,7 +31,7 @@ class PersonModel extends HiveObject {
   @override
   String toString() {
     // TODO: implement toString
-    return "Name:$name phonnumber $phoneNumber";
+    return "Name:$name phonnumber $phoneNumber pasword $password";
   }
 
 

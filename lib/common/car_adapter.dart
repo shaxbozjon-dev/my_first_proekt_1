@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:pdaftar/common/model/model.dart';
+import 'package:pdaftar/screen/begin/sign_in.dart';
 
 class PersonAdapter extends TypeAdapter<PersonModel>{
 
@@ -21,7 +22,11 @@ class PersonAdapter extends TypeAdapter<PersonModel>{
     writer.write(obj.password);
 
   }
-
+@override
+  String toString() {
+    // TODO: implement toString
+    return "name $names } " ;
+  }
 
 
 }

@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import '../../common/database.dart';
@@ -25,6 +26,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Column(
           children: [
             Padding(
@@ -84,6 +86,7 @@ class _SignInState extends State<SignIn> {
               padding: const EdgeInsets.only(
                   left: 18, right: 18, top: 5, bottom: 18),
               child: TextField(
+             scrollController: ScrollController(initialScrollOffset: 0),
                 controller: password,
                 obscureText: obcourse,
                 decoration: InputDecoration(
@@ -141,7 +144,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     child: Center(
                       child: Text(
-                        "Kirish ${mmm}",
+                        "Kirish ${Database.myBox.values} ",
                         style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
                       ),
                     ),

@@ -4,15 +4,17 @@ import 'package:hive/hive.dart';
 import 'package:pdaftar/common/model/model.dart';
 
 import '../screen/begin/sign_in.dart';
-List mmm=[];
+
+
 class Database{
-static final _myBox=Hive.box("kjhj");
+static var myBox=Hive.box("salom");
+
 
  static bool isContains(PersonModel person) {
-  if (_myBox.containsKey(person)) {
+  if (!myBox.containsKey(person)) {
    // database.addEntries([MapEntry(mijoz.raqami!, mijoz)]); bundan oson varyant bor
-   _myBox.add(person);
-   mmm=_myBox as List;
+   myBox.add(person);
+
    print("person qushildi✅ ");
    return true;
   } else {
@@ -25,14 +27,11 @@ static final _myBox=Hive.box("kjhj");
 
 static PersonStatus login(String phone, String password) {
 
-  if (_myBox.containsKey(phone)) {
-   if(_myBox.getAt(2)==password) {
-    names=_myBox.getAt(0);
+  if (myBox.values.contains(phone)) {
+print(myBox.values.first);
      return PersonStatus.hammasiZor;
-   }
-   else{
-     return PersonStatus.kodXato;
-   }
+
+
   } else {
    return PersonStatus.royhatdanOtmagan;
   }
