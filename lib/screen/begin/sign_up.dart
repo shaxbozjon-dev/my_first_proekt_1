@@ -137,6 +137,7 @@ class _SignUpState extends State<SignUp> {
               onPressed: (){
 
                 setState(() {
+
                   PersonModel newObyekt=PersonModel(name: name.text, password: password.text, phoneNumber: phoneNumber.text);
                   Database.isContains(newObyekt);
                   name.clear();
@@ -156,7 +157,7 @@ class _SignUpState extends State<SignUp> {
                       color: Colors.grey,
                       borderRadius: BorderRadius.all(Radius.circular(6)),
                     ),
-                    child: Center(child: Text("Hisobni ochish${Database.Malumotlar}",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)),
+                    child: Center(child: Text("Hisobni ochish}",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)),
                   ),
                 ),
               ),

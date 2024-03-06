@@ -36,9 +36,9 @@ class _MenuState extends State<Menu> {
           });
         },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home,), label: "Asosiy"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.hardware), label: "Transfer"),
+              icon: Icon(Icons.auto_graph), label: "Statistika"),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: "Star"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
         ],

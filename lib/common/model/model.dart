@@ -1,10 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-class PersonModel {
+class PersonModel extends HiveObject {
+  @HiveField(0)
   String name;
+  @HiveField(0)
   String phoneNumber;
+  @HiveField(1)
   String password;
 
   PersonModel(
@@ -29,4 +33,6 @@ class PersonModel {
     // TODO: implement toString
     return "Name:$name phonnumber $phoneNumber";
   }
+
+
 }

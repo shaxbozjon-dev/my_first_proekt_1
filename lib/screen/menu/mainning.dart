@@ -14,9 +14,38 @@ class Main extends StatefulWidget {
 class _MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
-    return Text(
-      "Nega kelding ${names}",
-      style: TextStyle(color: Colors.amber),
+    return  Column(
+      children: [
+
+         Column(
+            children: [
+
+              SizedBox(
+                height: 300,
+              ),
+
+              Text("Do'kon qo'shishingiz kerak",style: TextStyle(color: Colors.purple,),),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 4,color: Colors.purple),
+                        borderRadius: BorderRadius.all(Radius.circular(14)),
+
+                    ),
+                    child: Text("dfg"),
+                  ),
+                ),
+              ),
+
+            ],
+          ),
+
+
+      ],
     );
   }
 }

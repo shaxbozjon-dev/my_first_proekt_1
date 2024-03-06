@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:pdaftar/routes/app_router.dart';
-import 'package:pdaftar/routes/app_router.gr.dart';
-import 'package:pdaftar/screen/begin/sign_in.dart';
 
-void main() {
-  runApp(Nima());
+void main() async{
+await Hive.initFlutter();
+ var box=await Hive.openBox("salom");
+
+  runApp(Just());
 }
-class Nima extends StatelessWidget {
-  const Nima({super.key});
+class Just extends StatelessWidget {
+  const Just({super.key});
 
   @override
   Widget build(BuildContext context) {

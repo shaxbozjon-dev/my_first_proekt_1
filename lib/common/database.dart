@@ -1,11 +1,16 @@
+import 'dart:js_interop';
+
+import 'package:hive/hive.dart';
 import 'package:pdaftar/common/model/model.dart';
 
 import '../screen/begin/sign_in.dart';
 
 class Database{
+
  static Map<String,PersonModel> Malumotlar={};
+
  static bool isContains(PersonModel person) {
-  if (!Malumotlar.containsKey(person.phoneNumber)) {
+  if (!Malumotlar.containsKey(person)) {
    // database.addEntries([MapEntry(mijoz.raqami!, mijoz)]); bundan oson varyant bor
    Malumotlar[person.phoneNumber] = person;
    print("person qushildi✅ ");
@@ -19,15 +24,14 @@ class Database{
  }
 
 static PersonStatus login(String phone, String password) {
-  /// oldin bor yoki yo'qligini tekshiramiz
+
   if (Malumotlar.containsKey(phone)) {
-   /// bor bo'lsa endi kodini tekshiramiz
-   /// kodi tori bosa hammasiZor bomasa kodXato
-   if (Malumotlar[phone]!.password == password) {
-names=Malumotlar[phone]!.name;
-    return PersonStatus.hammasiZor;
-   } else {
-    return PersonStatus.kodXato;
+   if(Malumotlar[phone]!.password==password) {
+    names=Malumotlar[phone]!.name;
+     return PersonStatus.hammasiZor;
+   }
+   else{
+     return PersonStatus.kodXato;
    }
   } else {
    return PersonStatus.royhatdanOtmagan;
