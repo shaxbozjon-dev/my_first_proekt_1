@@ -141,7 +141,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     child: Center(
                       child: Text(
-                        "Kirish ${Database.Malumotlar}",
+                        "Kirish ${mmm}",
                         style: TextStyle(fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),
                       ),
                     ),

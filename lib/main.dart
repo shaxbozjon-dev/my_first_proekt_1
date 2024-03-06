@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:pdaftar/common/car_adapter.dart';
 import 'package:pdaftar/routes/app_router.dart';
 
 void main() async{
 await Hive.initFlutter();
  var box=await Hive.openBox("salom");
+Hive.registerAdapter(PersonAdapter());
 
   runApp(Just());
 }
