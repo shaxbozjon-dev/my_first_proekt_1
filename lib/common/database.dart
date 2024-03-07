@@ -27,7 +27,7 @@ static var myBox=Hive.box("salom");
 
 static PersonStatus login(String phone, String password) {
 
-  if (myBox.values.contains(phone)) {
+  if (myBox.values.contains(phone)&&myBox.values.contains(password)==true) {
 print(myBox.values.first);
      return PersonStatus.hammasiZor;
 
