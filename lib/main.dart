@@ -13,9 +13,31 @@ Hive.init(appDocumentDirectory.path);
   await Hive.openBox("salom");
 Hive.registerAdapter(PersonAdapter());
 
-  runApp(Just());
+  runApp(Menuqq());
 
 }
+
+class Menuqq extends StatefulWidget {
+  const Menuqq({super.key});
+
+  @override
+  State<Menuqq> createState() => _MenuqqState();
+}
+
+class _MenuqqState extends State<Menuqq> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+
+        ],
+      ),
+    );
+  }
+}
+
+
 class Just extends StatelessWidget {
   const Just({super.key});
 
