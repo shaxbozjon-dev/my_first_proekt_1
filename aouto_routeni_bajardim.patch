@@ -1,0 +1,403 @@
+Subject: [PATCH] aouto routeni bajardim
+---
+Index: lib/main.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/main.dart b/lib/main.dart
+--- a/lib/main.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/main.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -13,6 +13,7 @@
+   Widget build(BuildContext context) {
+     AppRouter appRouter=AppRouter();
+     return MaterialApp.router(
++      debugShowCheckedModeBanner: false,
+       routerConfig: appRouter.config(),
+     );
+   }
+Index: lib/routes/app_router.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/routes/app_router.dart b/lib/routes/app_router.dart
+--- a/lib/routes/app_router.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/routes/app_router.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -1,19 +1,15 @@
+-
+ import 'package:auto_route/auto_route.dart';
+ 
+-import 'package:pdaftar/screen/screen_a.dart';
+-import '../screen/begin/sign_Up.dart';
+-import '../screen/begin/sign_in.dart';
+ import 'app_router.gr.dart';
+-import '../screen/screen_b.dart';
+-import '../screen/screen_c.dart';
+-import 'app_router.gr.dart';
+-class AppRouter extends $AppRouter{
+-List <AutoRoute>get routes=>[
+-  AutoRoute(page: RouteA.page,initial: true),
+-  AutoRoute(page: RouteB.page),
+-  AutoRoute(page: RouteC.page),
+-
+-];
+-
+-}
+\ No newline at end of file
++
++class AppRouter extends $AppRouter {
++  List<AutoRoute> get routes => [
++        AutoRoute(page: RouteA.page, initial: true),
++        AutoRoute(page: RouteB.page),
++        AutoRoute(page: RouteC.page),
++        AutoRoute(page: RouteD.page),
++        AutoRoute(page: RouteE.page),
++        AutoRoute(page: RouteF.page),
++        AutoRoute(page: RouteG.page),
++      ];
++}
+Index: lib/routes/app_router.gr.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/routes/app_router.gr.dart b/lib/routes/app_router.gr.dart
+--- a/lib/routes/app_router.gr.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/routes/app_router.gr.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -1,13 +1,12 @@
+-
+-
+ import 'package:auto_route/auto_route.dart' as _i4;
+-import 'package:pdaftar/screen/begin/sign_in.dart'as _i1;
+-import 'package:pdaftar/screen/begin/sign_Up.dart'as _i2;
++import 'package:pdaftar/screen/begin/sign_in.dart' as _i1;
++import 'package:pdaftar/screen/begin/sign_Up.dart' as _i2;
+ 
+-import 'package:pdaftar/screen/screen_c.dart'as _i3;
+-
+-import '../screen/begin/sign_in.dart';
+-import '../screen/begin/sign_up.dart';
++import 'package:pdaftar/screen/menu/menu.dart' as _i3;
++import 'package:pdaftar/screen/menu/mainning.dart' as _i5;
++import 'package:pdaftar/screen/menu/Profil.dart' as _i6;
++import 'package:pdaftar/screen/menu/Star.dart' as _i7;
++import 'package:pdaftar/screen/menu/transfer.dart' as _i8;
+ 
+ abstract class $AppRouter extends _i4.RootStackRouter {
+   $AppRouter({super.navigatorKey});
+@@ -15,13 +14,32 @@
+   @override
+   final Map<String, _i4.PageFactory> pagesMap = {
+     RouteA.name: (routeData) {
+-      return _i4.AutoRoutePage<dynamic>(routeData: routeData, child: _i1.SignIn());
++      return _i4.AutoRoutePage<dynamic>(
++          routeData: routeData, child: _i1.SignIn());
+     },
+     RouteB.name: (routeData) {
+-      return _i4.AutoRoutePage<dynamic>(routeData: routeData, child: _i2.SignUp());
++      return _i4.AutoRoutePage<dynamic>(
++          routeData: routeData, child: _i2.SignUp());
+     },
+     RouteC.name: (routeData) {
+-      return _i4.AutoRoutePage<dynamic>(routeData: routeData, child: _i3.ScreenC());
++      return _i4.AutoRoutePage<dynamic>(
++          routeData: routeData, child: _i3.Menu());
++    },
++    RouteD.name: (routeData) {
++      return _i4.AutoRoutePage<dynamic>(
++          routeData: routeData, child: _i5.Main());
++    },
++    RouteE.name: (routeData) {
++      return _i4.AutoRoutePage<dynamic>(
++          routeData: routeData, child: _i6.Profil());
++    },
++    RouteF.name: (routeData) {
++      return _i4.AutoRoutePage<dynamic>(
++          routeData: routeData, child: _i7.Star());
++    },
++    RouteG.name: (routeData) {
++      return _i4.AutoRoutePage<dynamic>(
++          routeData: routeData, child: _i8.Transfer());
+     },
+   };
+ }
+@@ -43,6 +61,34 @@
+ class RouteC extends _i4.PageRouteInfo<void> {
+   RouteC({List<_i4.PageRouteInfo>? children})
+       : super(RouteC.name, initialChildren: children);
+-  static const String name = 'RouteC';
++  static const String name = 'Menu';
++  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
++}
++
++class RouteD extends _i4.PageRouteInfo<void> {
++  RouteD({List<_i4.PageRouteInfo>? children})
++      : super(RouteD.name, initialChildren: children);
++  static const String name = 'Maining';
++  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
++}
++
++class RouteE extends _i4.PageRouteInfo<void> {
++  RouteE({List<_i4.PageRouteInfo>? children})
++      : super(RouteE.name, initialChildren: children);
++  static const String name = 'Profil';
++  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
++}
++
++class RouteF extends _i4.PageRouteInfo<void> {
++  RouteF({List<_i4.PageRouteInfo>? children})
++      : super(RouteF.name, initialChildren: children);
++  static const String name = 'Star';
++  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
++}
++
++class RouteG extends _i4.PageRouteInfo<void> {
++  RouteG({List<_i4.PageRouteInfo>? children})
++      : super(RouteG.name, initialChildren: children);
++  static const String name = 'Transfer';
+   static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
+ }
+Index: lib/screen/begin/sign_in.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/screen/begin/sign_in.dart b/lib/screen/begin/sign_in.dart
+--- a/lib/screen/begin/sign_in.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/screen/begin/sign_in.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -1,11 +1,9 @@
+ import 'dart:io';
+-
+ import 'package:auto_route/auto_route.dart';
+ import 'package:flutter/material.dart';
+-import 'package:pdaftar/screen/begin/sign_up.dart';
+-
+ import '../../common/database.dart';
+-import '../../ui/menu/menu.dart';
++import '../../routes/app_router.gr.dart';
++import '../menu/menu.dart';
+ String names="";
+ 
+ @RoutePage()
+@@ -159,7 +157,7 @@
+                   TextButton(
+                       onPressed: (){
+                         setState(() {
+-                       AutoRouter.of(context).push(SignUp() as PageRouteInfo);
++                       AutoRouter.of(context).push(RouteB());
+                         });
+                       },
+                       child: Text("Ro'yhatdan o'tish",style: TextStyle(color: Colors.green.shade900,fontSize: 18),)),
+Index: lib/screen/begin/sign_up.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/screen/begin/sign_up.dart b/lib/screen/begin/sign_up.dart
+--- a/lib/screen/begin/sign_up.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/screen/begin/sign_up.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -6,6 +6,7 @@
+ import 'package:pdaftar/screen/begin/sign_in.dart';
+ 
+ import '../../common/database.dart';
++import '../../routes/app_router.gr.dart';
+ 
+ @RoutePage()
+ class SignUp extends StatefulWidget {
+@@ -33,7 +34,9 @@
+ 
+                 TextButton(
+                   onPressed: (){
+-                    Navigator.push(context, MaterialPageRoute(builder: (_)=>SignIn()));
++                    setState(() {
++                      AutoRouter.of(context).push(RouteA());
++                    });
+                   },
+                   child: Padding(
+                     padding: const EdgeInsets.only(left: 18,top: 18,bottom: 18),
+Index: lib/ui/menu/Profil.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/ui/menu/Profil.dart b/lib/screen/menu/Profil.dart
+rename from lib/ui/menu/Profil.dart
+rename to lib/screen/menu/Profil.dart
+--- a/lib/ui/menu/Profil.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/screen/menu/Profil.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -1,4 +1,7 @@
++import 'package:auto_route/auto_route.dart';
+ import 'package:flutter/material.dart';
++
++@RoutePage()
+ class Profil extends StatefulWidget {
+   const Profil({super.key});
+ 
+Index: lib/ui/menu/Star.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/ui/menu/Star.dart b/lib/screen/menu/Star.dart
+rename from lib/ui/menu/Star.dart
+rename to lib/screen/menu/Star.dart
+--- a/lib/ui/menu/Star.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/screen/menu/Star.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -1,4 +1,6 @@
++import 'package:auto_route/auto_route.dart';
+ import 'package:flutter/material.dart';
++@RoutePage()
+ class Star extends StatefulWidget {
+   const Star({super.key});
+ 
+Index: lib/ui/menu/mainning.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/ui/menu/mainning.dart b/lib/screen/menu/mainning.dart
+rename from lib/ui/menu/mainning.dart
+rename to lib/screen/menu/mainning.dart
+--- a/lib/ui/menu/mainning.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/screen/menu/mainning.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -1,6 +1,9 @@
++import 'package:auto_route/auto_route.dart';
+ import 'package:flutter/material.dart';
+ 
+ import '../../screen/begin/sign_in.dart';
++
++@RoutePage()
+ class Main extends StatefulWidget {
+   const Main({super.key});
+ 
+@@ -11,6 +14,9 @@
+ class _MainState extends State<Main> {
+   @override
+   Widget build(BuildContext context) {
+-    return Text("Nega kelding ${names}",style: TextStyle(color: Colors.amber),);
++    return Text(
++      "Nega kelding ${names}",
++      style: TextStyle(color: Colors.amber),
++    );
+   }
+ }
+Index: lib/ui/menu/menu.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/ui/menu/menu.dart b/lib/screen/menu/menu.dart
+rename from lib/ui/menu/menu.dart
+rename to lib/screen/menu/menu.dart
+--- a/lib/ui/menu/menu.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/screen/menu/menu.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -1,11 +1,13 @@
++import 'package:auto_route/auto_route.dart';
+ import 'package:flutter/material.dart';
+-import 'package:pdaftar/ui/menu/Profil.dart';
+-import 'package:pdaftar/ui/menu/Star.dart';
+-import 'package:pdaftar/ui/menu/mainning.dart';
+-import 'package:pdaftar/ui/menu/transfer.dart';
++import 'package:pdaftar/screen/menu/transfer.dart';
+ 
+ import '../../screen/begin/sign_in.dart';
++import 'Profil.dart';
++import 'Star.dart';
++import 'mainning.dart';
+ 
++@RoutePage()
+ class Menu extends StatefulWidget {
+   const Menu({super.key});
+ 
+@@ -16,14 +18,13 @@
+ class _MenuState extends State<Menu> {
+   int _currentIndex = 0;
+   List body = [Main(), Transfer(), Star(), Profil()];
++
+   @override
+   Widget build(BuildContext context) {
+-
+     return Scaffold(
+-
+-      body:Center(
+-        child:body[_currentIndex],),
+-
++      body: Center(
++        child: body[_currentIndex],
++      ),
+       bottomNavigationBar: BottomNavigationBar(
+         backgroundColor: Colors.blueGrey,
+         selectedItemColor: Colors.amberAccent,
+@@ -35,13 +36,11 @@
+           });
+         },
+         items: [
+-          BottomNavigationBarItem(icon: Icon(Icons.home),label: "home"),
+-          BottomNavigationBarItem(icon: Icon(Icons.hardware),label: "Transfer"),
+-          BottomNavigationBarItem(icon: Icon(Icons.star),label: "Star"),
+-          BottomNavigationBarItem(icon: Icon(Icons.person),label:"Profil"),
+-
+-
+-
++          BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
++          BottomNavigationBarItem(
++              icon: Icon(Icons.hardware), label: "Transfer"),
++          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Star"),
++          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
+         ],
+       ),
+     );
+Index: lib/ui/menu/transfer.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/ui/menu/transfer.dart b/lib/screen/menu/transfer.dart
+rename from lib/ui/menu/transfer.dart
+rename to lib/screen/menu/transfer.dart
+--- a/lib/ui/menu/transfer.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ b/lib/screen/menu/transfer.dart	(revision bef65b0effc98444874810363f8b7b79c411245d)
+@@ -1,4 +1,6 @@
++import 'package:auto_route/auto_route.dart';
+ import 'package:flutter/material.dart';
++@RoutePage()
+ class Transfer extends StatefulWidget {
+   const Transfer({super.key});
+ 
+Index: lib/screen/screen_a.dart
+===================================================================
+diff --git a/lib/screen/screen_a.dart b/lib/screen/screen_a.dart
+deleted file mode 100644
+--- a/lib/screen/screen_a.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ /dev/null	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
+@@ -1,11 +0,0 @@
+-import 'package:flutter/cupertino.dart';
+-import 'package:auto_route/auto_route.dart';
+-@RoutePage()
+-class ScreenA extends StatelessWidget {
+-  const ScreenA({super.key});
+-
+-  @override
+-  Widget build(BuildContext context) {
+-    return Text("1");
+-  }
+-}
+Index: lib/screen/screen_b.dart
+===================================================================
+diff --git a/lib/screen/screen_b.dart b/lib/screen/screen_b.dart
+deleted file mode 100644
+--- a/lib/screen/screen_b.dart	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
++++ /dev/null	(revision 7915a1b1c673989f3268f96005feed5c76f1ef21)
+@@ -1,11 +0,0 @@
+-import 'package:flutter/cupertino.dart';
+-import 'package:auto_route/auto_route.dart';
+-@RoutePage()
+-class ScreenB extends StatelessWidget {
+-  const ScreenB({super.key});
+-
+-  @override
+-  Widget build(BuildContext context) {
+-    return Text("2");
+-  }
+-}
